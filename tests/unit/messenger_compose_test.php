@@ -244,7 +244,7 @@ class block_quickmail_messenger_compose_testcase extends advanced_testcase {
         $this->assertEquals('Hello world', $this->email_in_sink_attr($sink, 7, 'subject'));
         $this->assertTrue($this->email_in_sink_body_contains($sink, 7, 'This is one fine body.'));
         $this->assertEquals(get_config('moodle', 'noreplyaddress'), $this->email_in_sink_attr($sink, 7, 'from'));
-        $this->assertEquals('additional@three.com', $this->email_in_sink_attr($sink, 7, 'to'));
+        $this->assertEquals('additional@three.com', $this->email_in_sink_attr($sink, 5, 'to'));
 
         $this->close_email_sink($sink);
     }
@@ -274,7 +274,7 @@ class block_quickmail_messenger_compose_testcase extends advanced_testcase {
 
         $this->assertEquals(5, $this->email_sink_email_count($sink));
         $this->assertEquals(block_quickmail_string::get('send_receipt_subject_addendage') . ': Hello world', $this->email_in_sink_attr($sink, 5, 'subject'));
-        $this->assertTrue($this->email_in_sink_body_contains($sink, 5, 'This message is to inform you that your message was sent.'));
+        $this->assertTrue($this->email_in_sink_body_contains($sink, 5, 'Your message has been sent!'));
         $this->assertEquals(get_config('moodle', 'noreplyaddress'), $this->email_in_sink_attr($sink, 5, 'from'));
         $this->assertEquals($user_teacher->email, $this->email_in_sink_attr($sink, 5, 'to'));
 

@@ -84,7 +84,7 @@ trait submits_compose_message_form {
                         foreach ($recipients[$inclusion_type][$recipient_type] as $id) {
                             $container_name = $inclusion_type . '_entity_ids';
 
-                            $$container_name[] = $recipient_type . '_' . $id;
+                            $$container_name[] = $id;
                         }
                     }
                 }

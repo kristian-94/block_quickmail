@@ -193,7 +193,11 @@ class queued_repo extends repo implements queued_repo_interface {
 			$sql .= ' AND m.course_id = :course_id';
 		}
 							
+		if ($as_count) {
+            $sql .= ' AND m.to_send_at <> 0 AND m.timedeleted = 0 AND m.sent_at = 0 AND m.is_draft = 0';
+        } else {
 		$sql .= ' AND m.to_send_at <> 0 AND m.timedeleted = 0 AND m.sent_at = 0 AND m.is_draft = 0 ORDER BY ' . $sort_by . ' ' . $sort_dir;
+        }
 
 		return $sql;
 	}

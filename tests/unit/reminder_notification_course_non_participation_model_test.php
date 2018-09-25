@@ -108,8 +108,6 @@ class block_quickmail_reminder_notification_course_non_participation_model_testc
             'condition_time_unit' => 'day',
         ]);
 
-        $this->dd($model);
-
         $ids_to_notify = $model->get_user_ids_to_notify();
 
         // four students in course which have never logged in

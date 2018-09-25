@@ -37,12 +37,6 @@ trait has_general_helpers {
         return $this->getDataGenerator();
     }
 
-    public function dd($thing)
-    {
-        var_dump($thing);
-        die;
-    }
-
     public function get_user_ids_from_user_array(array $users, $as_string = false)
     {
         $user_ids = array_map(function($user) {
